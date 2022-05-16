@@ -1,0 +1,15 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory app:title="@string/design_header">
+        <SwitchPreferenceCompat
+            app:key="darkMode"
+            app:title="@string/darkmode"
+            android:defaultValue="true" />
+        <EditTextPreference
+            app:key="fontsize"
+            app:title="@string/fontsize"
+            app:useSimpleSummaryProvider="true"
+            android:defaultValue="14"
+            android:inputType="number" />
+    </PreferenceCategory>
+</PreferenceScreen>
