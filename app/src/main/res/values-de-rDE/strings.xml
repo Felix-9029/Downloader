@@ -9,4 +9,7 @@
     <string name="cancelDownload">Download abbrechen</string>
     <string name="URIString">Bitte gib eine URL ein, um eine Datei runter zu laden:</string>
     <string name="wrongURL">Bitte geben Sie eine valide URL ein!</string>
+    <string name="DownloadStarted">Download gestartet</string>
+    <string name="DownloadCanceled">Download abgebrochen</string>
+    <string name="DownloadFinished">Download abgeschlossen</string>
 </resources>

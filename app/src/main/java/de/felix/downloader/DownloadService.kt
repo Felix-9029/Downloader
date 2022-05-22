@@ -17,7 +17,7 @@ import java.util.regex.Pattern
 class DownloadService : Service() {
 
     var cancel = false
-    var message = "Download abgeschlossen"
+    var message = getString(R.string.DownloadFinished)
 
     inner class MyBinder : Binder() {
         // Return this instance of MyService so clients can call public methods
@@ -59,7 +59,7 @@ class DownloadService : Service() {
                 while (bufferedInputStream.read(dataBuffer, 0, 1024).also { bytesRead = it } != -1) {
                     if (cancel) {
                         setSharedPreference("downloadState", "0.0")
-                        message = "Download abgebrochen"
+                        message = getString(R.string.DownloadCanceled)
                         break
                     }
                     fileOutputStream.write(dataBuffer, 0, bytesRead)
@@ -87,6 +87,11 @@ class DownloadService : Service() {
     }
 
     override fun onBind(intent: Intent?): IBinder = binder
+
+    override fun onCreate() {
+        super.onCreate()
+        Toast.makeText(this, getString(R.string.DownloadStarted), Toast.LENGTH_SHORT).show()
+    }
 
     override fun onDestroy() {
         cancel = true

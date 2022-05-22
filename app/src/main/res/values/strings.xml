@@ -7,7 +7,10 @@
     <string name="design_header">Design</string>
     <string name="https_example_com_file" translatable="false">https://example.com/file</string>
     <string name="startDownload">Start download</string>
+    <string name="DownloadStarted">Download started</string>
     <string name="cancelDownload">Cancel Download</string>
-    <string name="URIString">Please enter an URL to download a file:</string>
+    <string name="DownloadCanceled">Download canceled</string>
+    <string name="DownloadFinished">Download finished</string>
+    <string name="URIString">Please enter a URL to download a file:</string>
     <string name="wrongURL">Please enter a valid URL!</string>
 </resources>
