@@ -13,4 +13,5 @@
     <string name="DownloadFinished">Download finished</string>
     <string name="URIString">Please enter a URL to download a file:</string>
     <string name="wrongURL">Please enter a valid URL!</string>
+    <string name="oneDownloadOnly">Please download only one file at a time!</string>
 </resources>

@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         applySharedPreferenceSettings()
 
         progressBarDownload.max = 100
+        progressBarDownload.progress = 0
 
         val downloadServiceIntent = Intent(this@MainActivity, DownloadService::class.java)
 
@@ -52,8 +53,13 @@ class MainActivity : AppCompatActivity() {
                     ActivityCompat.requestPermissions(this@MainActivity, arrayOf(WRITE_EXTERNAL_STORAGE), 1)
                 }
                 else {
-                    startService(downloadServiceIntent)
-                    startCountDownTimer()
+                    if (progressBarDownload.progress == 0 || progressBarDownload.progress == 100) {
+                        startService(downloadServiceIntent)
+                        startCountDownTimer()
+                    }
+                    else {
+                        Snackbar.make(view, R.string.oneDownloadOnly, Snackbar.LENGTH_LONG).setAction("Action", null).show()
+                    }
                 }
             }
             else {

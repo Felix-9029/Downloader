@@ -12,4 +12,5 @@
     <string name="DownloadStarted">Download gestartet</string>
     <string name="DownloadCanceled">Download abgebrochen</string>
     <string name="DownloadFinished">Download abgeschlossen</string>
+    <string name="oneDownloadOnly">Bitte laden Sie nur eine Datei auf einmal runter!</string>
 </resources>

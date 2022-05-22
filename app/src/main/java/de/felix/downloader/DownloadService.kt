@@ -12,6 +12,7 @@ import java.io.BufferedInputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
+import java.time.LocalDateTime
 import java.util.regex.Pattern
 import kotlin.math.roundToInt
 
@@ -83,7 +84,12 @@ class DownloadService : Service() {
         val patternValue = Pattern.compile(".*[a-zA-Z\\d]+/([^/]+)", Pattern.CASE_INSENSITIVE)
         val matcherValue = patternValue.matcher(url)
         matcherValue.find()
-        return matcherValue.group(1)!!
+        return if (!matcherValue.matches()) {
+            val date =  LocalDateTime.now().year.toString() + "_"+ LocalDateTime.now().monthValue.toString() + "_" + LocalDateTime.now().dayOfMonth.toString() + "_" + LocalDateTime.now().hour.toString() + "_" + LocalDateTime.now().minute.toString() + "_" + LocalDateTime.now().second.toString()
+            "UnknownFile-$date"
+        } else {
+            matcherValue.group(1)!!
+        }
     }
 
     override fun onBind(intent: Intent?): IBinder = binder
