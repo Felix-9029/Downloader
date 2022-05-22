@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 
     fun startCountDownTimer() {
         countDownTimer = object : CountDownTimer(Long.MAX_VALUE, 1) {
-            override fun onTick(millisUntilFinished: Long) {
+            override fun onTick(milliSeconds: Long) {
                 val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mainActivity)
                 val progress = sharedPreferences.getString("downloadState", "0")!!.toDouble().roundToInt()
                 progressBarDownload.progress = progress
