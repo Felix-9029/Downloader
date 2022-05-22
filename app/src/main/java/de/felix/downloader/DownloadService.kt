@@ -13,11 +13,12 @@ import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
 import java.util.regex.Pattern
+import kotlin.math.roundToInt
 
 class DownloadService : Service() {
 
     var cancel = false
-    var message = getString(R.string.DownloadFinished)
+    lateinit var message: String
 
     inner class MyBinder : Binder() {
         // Return this instance of MyService so clients can call public methods
@@ -59,7 +60,6 @@ class DownloadService : Service() {
                 while (bufferedInputStream.read(dataBuffer, 0, 1024).also { bytesRead = it } != -1) {
                     if (cancel) {
                         setSharedPreference("downloadState", "0.0")
-                        message = getString(R.string.DownloadCanceled)
                         break
                     }
                     fileOutputStream.write(dataBuffer, 0, bytesRead)
@@ -90,11 +90,16 @@ class DownloadService : Service() {
 
     override fun onCreate() {
         super.onCreate()
+        message = getString(R.string.DownloadFinished)
         Toast.makeText(this, getString(R.string.DownloadStarted), Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroy() {
         cancel = true
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.mainActivity)
+        if (sharedPreferences.getString("downloadState", "0")!!.toDouble().roundToInt() < 100) {
+            message = getString(R.string.DownloadCanceled)
+        }
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
