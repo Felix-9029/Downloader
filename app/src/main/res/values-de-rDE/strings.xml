@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="DownloaderMainLabel">Downloader</string>
+    <string name="DownloaderSettingsLabel">Einstellungen</string>
+    <string name="darkmode">Dunkelmodus</string>
+    <string name="fontsize">Schriftgröße</string>
+    <string name="design_header">Aussehen</string>
+    <string name="startDownload">Download starten</string>
+    <string name="cancelDownload">Download abbrechen</string>
+    <string name="URIString">Bitte gib eine URL ein, um eine Datei runter zu laden:</string>
+    <string name="wrongURL">Bitte geben Sie eine valide URL ein!</string>
+</resources>
